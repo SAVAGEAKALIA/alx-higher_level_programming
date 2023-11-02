@@ -13,7 +13,7 @@ else:
 
 output = "Last digit of {} is {} and is"
 output1 = "greater than 5"
-outout2 = "0"
+output2 = "0"
 output3 = "less than 6 and not 0"
 
 if last_digit > 5:
