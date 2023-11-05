@@ -7,9 +7,11 @@ if __name__ == "__main__":
     argv_list = sys.argv[1:]
 
     if num_argv == 0:
-        print("0 argument")
+        print("0 arguments.")
+    elif num_argv > 0 and num_argv < 2:
+        print("{} argument:".format(num_argv))
     else:
-        print("{} arguments".format(num_argv))
+        print("{} arguments:".format(num_argv))
 
     for i, arg in enumerate(argv_list, 1):
         print("{}: {}".format(i, arg))
