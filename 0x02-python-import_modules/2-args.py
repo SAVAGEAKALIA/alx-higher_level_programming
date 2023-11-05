@@ -2,7 +2,6 @@
 from sys import argv
 
 if __name__ == "__main__":
-
     num_argv = len(argv) - 1
     argv_list = argv[1:]
 
