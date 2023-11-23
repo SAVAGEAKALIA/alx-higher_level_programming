@@ -10,7 +10,7 @@ def magic_calculation(a, b):
             result += (a ** b) / i
         except Exception as ve:
             result = a + b
-           # print("Exception: {}".format(ve))
+           # mprint("Exception: {}".format(ve))
             break
 
     return result
