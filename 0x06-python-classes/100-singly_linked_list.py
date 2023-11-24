@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ This module defines singly linked list in OOP """
 
+
 class Node:
     """ Creates A Node for Singly linked list """
 
@@ -15,7 +16,7 @@ class Node:
     def data(self):
         """ Getter to return data  to class Node """
         return self.__data
-    
+
     @data.setter
     def data(self, value):
         """ Value to be stored in Data
@@ -29,6 +30,7 @@ class Node:
     def next_node(self):
         """ Getter to return next node in singly linked list """
         return self.__next_node
+
     @next_node.setter
     def next_node(self, value):
         """ Update next node in the singly linked list """
@@ -68,7 +70,7 @@ class SinglyLinkedList:
             tmp += f"{current.data}\n"
             current = current.next_node
 
-        return  tmp
+        return tmp
 
     def __str__(self):
         """ Override the __str__ method to print the linked list """
