@@ -1,4 +1,15 @@
 #!/usr/bin/python3
+"""
+Sqaure Class
+
+Defines class named square
+attributes include size, and signs
+
+OOP
+
+"""
+
+
 class Square:
     """Defines a square."""
 
@@ -41,7 +52,7 @@ class Square:
         """Override the equality operator."""
         if isinstance(other, Square):
             return self.area() == other.area()
-        return False
+        return NoImplemented
 
     def __ne__(self, other):
         """Override the not equal operator."""
@@ -51,22 +62,22 @@ class Square:
         """Override the less than operator."""
         if isinstance(other, Square):
             return self.area() < other.area()
-        return False
+        return NoImplemented
 
     def __le__(self, other):
         """Override the less than or equal operator."""
         if isinstance(other, Square):
             return self.area() <= other.area()
-        return False
+        return NoImplemented
 
     def __gt__(self, other):
         """Override the greater than operator."""
         if isinstance(other, Square):
             return self.area() > other.area()
-        return False
+        return NoImplemented
 
     def __ge__(self, other):
         """Override the greater than or equal operator."""
         if isinstance(other, Square):
             return self.area() >= other.area()
-        return False
+        return NoImplemented
