@@ -2,7 +2,7 @@
 """ Say my name plus test """
 
 
-def say_my_name(first_name, last_name = ""):
+def say_my_name(first_name, last_name=""):
     """ This is a function that prints name of the individual
     """
     if not isinstance(first_name, str):
