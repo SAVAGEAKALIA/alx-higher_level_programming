@@ -8,6 +8,7 @@ Using ``0-add_integer``
 
 >>> add_integer = __import__('0-add_integer').add_integer
 
+
 # Test one int argument:
 
 >>> add_integer(2)

@@ -1,0 +1,40 @@
+Testing the  ``4-print_square.txt``
+============================
+
+Using ``4-print_square.txt``
+
+--------------------
+# Import function from module:
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+# Test 1
+>>> text_indentation("This is a sample text. It has some punctuation marks, doesn't it?")
+This is a sample text.
+<BLANKLINE>
+It has some punctuation marks, doesn't it?
+
+# Test 2
+>>> text_indentation("Another text: With colons and ellipsis...")
+Another text:
+<BLANKLINE>
+With colons and ellipsis.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+
+# Test 3
+>>> text_indentation(123)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+
+# Test 4
+>>> text_indentation("")
+<BLANKLINE>
+
+# Test 5:
+>>> text_indentation("  Spaces at the beginning and end should be removed.  ")
+Spaces at the beginning and end should be removed.

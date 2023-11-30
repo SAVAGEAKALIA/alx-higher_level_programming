@@ -18,7 +18,7 @@ def matrix_divided(matrix, div):
         raise TypeError("{}".format(err))
 
     if not \
-       all(isinstance(elem, (int, float)) for row in matrix for elem in row):
+            all(isinstance(elem, (int, float)) for row in matrix for elem in row):
         err = "matrix must be a matrix (list of lists) of integers/floats"
         raise TypeError("{}".format(err))
 
@@ -38,3 +38,9 @@ def matrix_divided(matrix, div):
 
     result = [[round((i / div), 2) for i in row] for row in matrix]
     return result
+
+
+if __name__ == "__main__":
+    import doctest
+
+    doctest.testfile("tests/2-matrix_divided.txt")

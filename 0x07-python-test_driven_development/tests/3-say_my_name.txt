@@ -1,0 +1,45 @@
+Testing the  ``3-say_my_name.txt``
+============================
+
+Using ``3-say_my_name.txt``
+
+--------------------
+# Import function from module:
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+
+# Test 1 no first name:
+>>> say_my_name(12, 'Saviour')
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+# Test 2 No last name:
+>>> say_my_name('Saviour', 12)
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+
+# Test 3 Two string
+
+>>> say_my_name('Saviour', 'Davies')
+My name is Saviour Davies
+
+# Test 4 No strings at all or digit
+
+>>> say_my_name(Saviour, Davies)
+Traceback (most recent call last):
+    ...
+NameError: name 'Saviour' is not defined
+
+# Test 5 One string no digit:
+>>> say_my_name('Saviour', Davies)
+Traceback (most recent call last):
+    ...
+NameError: name 'Davies' is not defined
+
+# Test 6 No input at all:
+Traceback (most recent call last):
+    ...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
