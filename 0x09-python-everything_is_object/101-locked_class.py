@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" A locked Class documentation """
 class LockedClass:
     """
     A class with restricted attribute creation, allowing only 'first_name'.
