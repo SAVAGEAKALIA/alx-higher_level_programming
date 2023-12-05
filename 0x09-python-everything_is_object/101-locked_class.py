@@ -14,7 +14,7 @@ class LockedClass:
 
     def __init__(self, first_name=''):
         """
-        Initialize an instance of LockedClass.
+        Initializes an instance of LockedClass.
 
         Parameters:
         - first_name (str): The value to set for the 'first_name' attribute.
