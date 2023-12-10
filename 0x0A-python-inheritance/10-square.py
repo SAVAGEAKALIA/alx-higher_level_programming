@@ -19,9 +19,9 @@ class BaseGeometry:
         self.name = name
 
         if not isinstance(self.value, int):
-            raise TypeError("<name> must be an integer")
+            raise TypeError("{} must be an integer".format(self.name))
         if self.value <= 0:
-            raise ValueError("<name> must be greater than 0")
+            raise ValueError("{} must be greater than 0".format(self.name))
 
 
 class Rectangle(BaseGeometry):
@@ -50,9 +50,9 @@ class Square(Rectangle):
 
     def __init__(self, size):
         """ Instance of class for size """
-        super().__init__(size, size)
         self.integer_validator("size", size)  # Validate size
         self.__size = size
+        super().__init__(size, size)
 
     def area(self):
         """ Calculates the Area """
