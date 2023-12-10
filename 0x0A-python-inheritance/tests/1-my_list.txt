@@ -16,13 +16,13 @@ Using ``1-my_list.py``
 >>> my_list.append()
 Traceback (most recent call last):
   ...
-TypeError: list.append() takes exactly one argument (0 given)
+TypeError: append() takes exactly one argument (0 given)
 
 # Test 3 more numbers
 >>> my_list.append(1, 2)
 Traceback (most recent call last):
   ...
-TypeError: list.append() takes exactly one argument (2 given)
+TypeError: append() takes exactly one argument (2 given)
 
 # Test 4 Empty Sorted
 >>> my_list = MyList()
