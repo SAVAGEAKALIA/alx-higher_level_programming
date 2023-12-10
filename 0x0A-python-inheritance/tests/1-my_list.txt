@@ -1,0 +1,43 @@
+Testing the  ``1-my_list.py``
+============================
+
+Using ``1-my_list.py``
+---------------------
+
+# Import function from module:
+
+>>> MyList = __import__('1-my_list').MyList
+>>> my_list = MyList()
+
+# Test 1 String
+>>> my_list.append('1')
+
+# Test 2 Empty
+>>> my_list.append()
+Traceback (most recent call last):
+  ...
+TypeError: list.append() takes exactly one argument (0 given)
+
+# Test 3 more numbers
+>>> my_list.append(1, 2)
+Traceback (most recent call last):
+  ...
+TypeError: list.append() takes exactly one argument (2 given)
+
+# Test 4 Empty Sorted
+>>> my_list = MyList()
+>>> my_list.print_sorted()
+[]
+
+# Test 5 Negative integer Sort
+>>> my_list = MyList([-3, 0, -1, -5, -2])
+>>> my_list.print_sorted()
+[-5, -3, -2, -1, 0]
+
+# Test 6 Positive integer Sort
+>>> my_list = MyList([1, 4, 2, 3, 5])
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+
+# Test 7 one integer
+>>> my_list.append(1)

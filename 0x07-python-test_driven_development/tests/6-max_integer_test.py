@@ -24,7 +24,7 @@ class TestMaxInteger(unittest.TestCase):
         """
         self.assertEqual(max_integer([]), None)
 
-    # Add other test cases following a similar pattern
+    # Add other tests cases following a similar pattern
 
     def test_floats_large(self):
         """
@@ -82,7 +82,7 @@ class TestMaxInteger(unittest.TestCase):
         """
         self.assertEqual(max_integer("192834754"), "9")
 
-    # Add more test cases following a similar pattern
+    # Add more tests cases following a similar pattern
     def test_negatives(self):
         """A Unittest for max_integer([..])"""
         self.assertEqual(
