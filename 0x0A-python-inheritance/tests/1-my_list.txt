@@ -7,9 +7,9 @@ Using ``1-my_list.py``
 # Import function from module:
 
 >>> MyList = __import__('1-my_list').MyList
->>> my_list = MyList()
 
 # Test 1 String
+>>> my_list = MyList()
 >>> my_list.append('1')
 
 # Test 2 Empty

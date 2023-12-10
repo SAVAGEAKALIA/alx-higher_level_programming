@@ -7,6 +7,5 @@ class MyList(list):
 
     def print_sorted(self):
         """ Prints a sorted list """
-        sorted_list = self[:]
-        sorted_list.sort()
+        sorted_list = sorted(self)
         print("{}".format(sorted_list))
