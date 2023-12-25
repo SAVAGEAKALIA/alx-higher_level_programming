@@ -17,5 +17,3 @@ def load_from_json_file(filename):
         loaded_obj = json.load(json_file)
 
     return loaded_obj
-
-
