@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ File for the  Input/Output Project"""
-import json
 import sys
 from os.path import exists
 
@@ -28,6 +27,7 @@ def add_arguments():
     loaded_objects = load_from_json_file("add_item.json")
 
     return loaded_objects
+
 
 if __name__ == "__main__":
     add_arguments()

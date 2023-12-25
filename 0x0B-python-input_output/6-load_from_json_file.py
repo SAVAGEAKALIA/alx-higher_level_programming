@@ -18,5 +18,4 @@ def load_from_json_file(filename):
 
     return loaded_obj
 
-if __name__ == "__main__":
-    load_from_json_file(filename)
+
