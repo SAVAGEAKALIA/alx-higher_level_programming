@@ -1,52 +1,35 @@
 #!/usr/bin/python3
 """ File for the  Input/Output Project"""
+
 import sys
 
+status_codes = {200, 301, 400, 401, 403, 404, 405, 500}
+code_counts = {}  # Initialize an empty dictionary to store code counts
+total_file_size = 0
+line_count = 0
 
-def print_metrics(total_size, status_code_counts):
-    """Prints the computed metrics."""
-    print("File size: {}".format(total_size))
-    for code, count in sorted(status_code_counts.items()):
-        print("{}: {}".format(code, count))
-
-
-def process_line(line, total_size, status_code_counts):
+try:
     """Processes a line and updates the metrics."""
-    try:
-        elements = line.split()
-        size = int(elements[-1])
-        code = elements[-2]
-        total_size += size
+    for line in sys.stdin:
+        line_count += 1
+        parts = line.split()
+        status_code = int(parts[-2])
+        file_size = int(parts[-1])
 
-        # Update status code count
-        if code in status_code_counts:
-            status_code_counts[code] += 1
-        else:
-            status_code_counts[code] = 1
+        total_file_size += file_size
+        code_counts[status_code] = code_counts.get(status_code, 0) + 1
 
-    except (ValueError, IndexError):
-        pass  # Ignore lines that don't match the expected format
+        if line_count % 10 == 0:
+            print_statistics()
 
-    return total_size, status_code_counts
+except KeyboardInterrupt:
+    print_statistics()  # Print final statistics on interruption
 
 
-def main():
-    total_size = 0
-    status_code_counts = {}
+def print_statistics():
+    """Prints the computed metrics."""
+    print("File size:", total_file_size)
 
-    try:
-        for i, line in enumerate(sys.stdin, 1):
-            total_size, status_code_counts = process_line(line, total_size, status_code_counts)
-
-            # Print metrics every 10 lines
-            if i % 10 == 0:
-                print_metrics(total_size, status_code_counts)
-
-    except KeyboardInterrupt:
-        # Handle Ctrl+C interruption
-        print_metrics(total_size, status_code_counts)
-        sys.exit(0)
-
-
-if __name__ == "__main__":
-    main()
+    print("Number of lines by status code:")
+    for code in sorted(code_counts):  # Print codes in ascending order
+        print(f"{code}: {code_counts[code]}")
