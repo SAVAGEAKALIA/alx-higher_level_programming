@@ -1,35 +1,43 @@
 #!/usr/bin/python3
 """ File for the  Input/Output Project"""
-
 import sys
 
-status_codes = {200, 301, 400, 401, 403, 404, 405, 500}
-code_counts = {}  # Initialize an empty dictionary to store code counts
-total_file_size = 0
+# Initialize variables to store metrics
+total_size = 0
+status_counts = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 line_count = 0
 
 try:
-    """Processes a line and updates the metrics."""
+    # Read input lines from stdin
     for line in sys.stdin:
-        line_count += 1
-        parts = line.split()
-        status_code = int(parts[-2])
-        file_size = int(parts[-1])
+        """Processes a line and updates the metrics."""
+        elements = line.split()
 
-        total_file_size += file_size
-        code_counts[status_code] = code_counts.get(status_code, 0) + 1
+        # Check if there are enough elements in the line
+        if len(elements) >= 2:
+            # Extract status code and file size from the elements
+            status_code = int(elements[-2])
+            file_size = int(elements[-1])
+            total_size += file_size
 
+            # Update the count for the status code
+            if status_code in status_counts:
+                status_counts[status_code] += 1
+
+            line_count += 1
+
+        # Print metrics every 10 lines
         if line_count % 10 == 0:
-            print_statistics()
+            print("""File size: {}""".format(total_size))
+            for code, count in sorted(status_counts.items()):
+                if count > 0:
+                    print("""{}: {}""".format(code, count))
 
 except KeyboardInterrupt:
-    print_statistics()  # Print final statistics on interruption
-
-
-def print_statistics():
-    """Prints the computed metrics."""
-    print("File size:", total_file_size)
-
-    print("Number of lines by status code:")
-    for code in sorted(code_counts):  # Print codes in ascending order
-        print(f"{code}: {code_counts[code]}")
+    pass
+finally:
+    """ Print final metrics after interruption """
+    print("""File size: {}""".format(total_size))
+    for code, count in sorted(status_counts.items()):
+        if count > 0:
+            print("""{}: {}""".format(code, count))
