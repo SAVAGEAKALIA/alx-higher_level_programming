@@ -25,7 +25,8 @@ class Student:
 
         # If attrs is not provided, include all attributes
         if attrs is None:
-            attrs = [attribute_name for attribute_name in dir(self) if not attribute_name.startswith('__')]
+            attrs = \
+                [atr_name for atr_name in dir(self) if not atr_name.startswith('__')]
 
         # Iterate over the specified attributes
         for attribute_name in attrs:

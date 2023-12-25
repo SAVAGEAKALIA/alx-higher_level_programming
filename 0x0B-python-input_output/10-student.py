@@ -11,7 +11,7 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self, attrs=None):
+    def to_json(self, attrs = None):
         """
         Write a function that returns the
         dictionary description with simple data structure
@@ -24,7 +24,8 @@ class Student:
 
         # If attrs is not provided, include all attributes
         if attrs is None:
-            attrs = [attribute_name for attribute_name in dir(self) if not attribute_name.startswith('__')]
+            attrs = \
+                [atr_name for atr_name in dir(self) if not atr_name.startswith('__')]
         # Iterate over the attributes of the object
         for attribute_name in attrs:
             # Filter out private attributes
