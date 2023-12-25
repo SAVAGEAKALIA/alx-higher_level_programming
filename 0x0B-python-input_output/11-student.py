@@ -6,7 +6,9 @@ class Student:
     """Class that defines a student."""
 
     def __init__(self, first_name, last_name, age):
-        """Initialize a Student instance with first_name, last_name, and age."""
+        """
+        Initialize a Student instance with first_name, last_name, and age.
+        """
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
@@ -16,7 +18,7 @@ class Student:
         Retrieve a dictionary representation of a Student instance.
 
         Args:
-            attrs (list): List of attribute names to include in the result. Default is None.
+            attrs (list):attribute names to include in the result.
 
         Returns:
             dict: Dictionary representation of the Student instance.
@@ -39,7 +41,7 @@ class Student:
                         result[attribute_name] = att_value
 
                 except AttributeError:
-                    # Handle the case where the attribute doesn't exist on the object
+                    # case where the attribute doesn't exist
                     pass
 
         return result
