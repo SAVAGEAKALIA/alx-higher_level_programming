@@ -26,18 +26,17 @@ class Student:
         # If attrs is not provided, include all attributes
         if attrs is None:
             attrs = \
-                [atr_name for atr_name in dir(self) if not atr_name.startswith('__')]
+                [a_name for a_name in dir(self) if not a_name.startswith('__')]
 
         # Iterate over the specified attributes
         for attribute_name in attrs:
             # Filter out private attributes
             if not attribute_name.startswith('__'):
                 try:
-                    attribute_value = getattr(self, attribute_name)
-
+                    att_value = getattr(self, attribute_name)
                     # Check if the attribute is of a serializable type
-                    if isinstance(attribute_value, (list, dict, str, int, bool)):
-                        result[attribute_name] = attribute_value
+                    if isinstance(att_value, (list, dict, str, int, bool)):
+                        result[attribute_name] = att_value
 
                 except AttributeError:
                     # Handle the case where the attribute doesn't exist on the object

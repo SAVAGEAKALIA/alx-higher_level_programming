@@ -11,7 +11,7 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self, attrs = None):
+    def to_json(self, attrs=None):
         """
         Write a function that returns the
         dictionary description with simple data structure
@@ -25,17 +25,17 @@ class Student:
         # If attrs is not provided, include all attributes
         if attrs is None:
             attrs = \
-                [atr_name for atr_name in dir(self) if not atr_name.startswith('__')]
+                [a_name for a_name in dir(self) if not a_name.startswith('__')]
         # Iterate over the attributes of the object
         for attribute_name in attrs:
-            # Filter out private attributes
+            # Filter out private
             if not attribute_name.startswith('__'):
                 try:
-                    attribute_value = getattr(self, attribute_name)
+                    at_value = getattr(self, attribute_name)
 
                     # Check if the attribute is of a serializable type
-                    if isinstance(attribute_value, (list, dict, str, int, bool)):
-                        result[attribute_name] = attribute_value
+                    if isinstance(at_value, (list, dict, str, int, bool)):
+                        result[attribute_name] = at_value
                 except AttributeError:
                     pass
         return result
