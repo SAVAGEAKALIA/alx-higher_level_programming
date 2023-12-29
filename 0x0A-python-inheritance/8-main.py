@@ -7,7 +7,7 @@ print(r)
 print(dir(r))
 
 try:
-    print("Rectangle: {} - {}".format(r.width, r.height))
+    print("Rectangle: {} - {}".format(r.height, r.height))
 except Exception as e:
     print("[{}] {}".format(e.__class__.__name__, e))
 
