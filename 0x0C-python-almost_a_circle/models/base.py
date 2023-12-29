@@ -10,7 +10,7 @@ class Base:
 
     __nb_objects = 0
 
-    def __init__(self, id = None):
+    def __init__(self, id=None):
         """
         Initialize a Base object.
 
@@ -42,10 +42,9 @@ class Base:
         @param list_dictionaries:
         @return: JSON String format
         """
-        if list_dictionaries is not None:
-            return dumps(list_dictionaries)
-        else:
+        if list_dictionaries is None or list_dictionaries == "":
             return []
+        return dumps(list_dictionaries)
 
     @staticmethod
     def from_json_string(json_string):
@@ -92,9 +91,9 @@ class Base:
         returns an instance with all attributes already set
         """
         if cls.__name__ == "Rectangle":
-            dummy = cls(1, 1, 1, 1)
+            dummy = cls(1, 1)
         elif cls.__name__ == "Square":
-            dummy = cls(1, 1, 1)
+            dummy = cls(1)
         else:
             dummy = cls()
         dummy.update(**dictionary)

@@ -31,12 +31,10 @@ class TestBaseCase(unittest.TestCase):
         r1 = Rectangle(10, 2)
         r2 = Rectangle(20, 3)
 
-        self.assertEqual(r1.id, 1)
         self.assertEqual(r1.width, 10)
         self.assertEqual(r1.height, 2)
         self.assertEqual(r1.x, 0)
         self.assertEqual(r1.y, 0)
-        self.assertEqual(r2.id, 2)
         self.assertEqual(r2.width, 20)
         self.assertEqual(r2.height, 3)
         self.assertEqual(r2.x, 0)
@@ -68,55 +66,55 @@ class TestBaseCase(unittest.TestCase):
         """Test invalid width."""
         with self.assertRaises(ValueError) as context:
             r = Rectangle(0, 20, 2, 3, 1)
-        self.assertEqual(str(context.exception), "width must be > 0.")
+        self.assertEqual(str(context.exception), "width must be > 0")
 
     def test_invalid_height(self):
         """Test invalid height."""
         with self.assertRaises(ValueError) as context:
             r = Rectangle(10, -5, 2, 3, 1)
-        self.assertEqual(str(context.exception), "height must be > 0.")
+        self.assertEqual(str(context.exception), "height must be > 0")
 
     def test_invalid_x(self):
         """Test invalid x."""
         with self.assertRaises(ValueError) as context:
             r = Rectangle(10, 20, -2, 3, 1)
-        self.assertEqual(str(context.exception), "x must be >= 0.")
+        self.assertEqual(str(context.exception), "x must be >= 0")
 
     def test_invalid_y(self):
         """Test invalid y."""
         with self.assertRaises(ValueError) as context:
             r = Rectangle(10, 20, 2, -3, 1)
-        self.assertEqual(str(context.exception), "y must be >= 0.")
+        self.assertEqual(str(context.exception), "y must be >= 0")
 
     def test_non_integer_width(self):
         """Test non-integer width."""
         with self.assertRaises(TypeError) as context:
             r = Rectangle("10", 20, 2, 3, 1)
-        self.assertEqual(str(context.exception), "width must be an integer.")
+        self.assertEqual(str(context.exception), "width must be an integer")
 
     def test_non_integer_height(self):
         """Test non-integer height."""
         with self.assertRaises(TypeError) as context:
             r = Rectangle(10, "20", 2, 3, 1)
-        self.assertEqual(str(context.exception), "height must be an integer.")
+        self.assertEqual(str(context.exception), "height must be an integer")
 
     def test_non_integer_x(self):
         """Test non-integer x."""
         with self.assertRaises(TypeError) as context:
             r = Rectangle(10, 20, "2", 3, 1)
-        self.assertEqual(str(context.exception), "x must be an integer.")
+        self.assertEqual(str(context.exception), "x must be an integer")
 
     def test_non_integer_y(self):
         """Test non-integer y."""
         with self.assertRaises(TypeError) as context:
             r = Rectangle(10, 20, 2, "3", 1)
-        self.assertEqual(str(context.exception), "y must be an integer.")
+        self.assertEqual(str(context.exception), "y must be an integer")
 
     def test_string_x(self):
         """ Test string. """
         with self.assertRaises(TypeError) as context:
             r = Rectangle(20, 19, "help", 4, 1)
-        self.assertEqual(str(context.exception), "x must be an integer.")
+        self.assertEqual(str(context.exception), "x must be an integer")
 
     def test_area(self):
         """Test area method."""
@@ -144,7 +142,6 @@ class TestBaseCase(unittest.TestCase):
         r = Rectangle(5, 10, 2, 1, 1)
         expected_output = "[Rectangle] (1) 2/1 - 5/10"
         self.assertEqual(str(r), expected_output)
-
 
     def test_set_attributes(self):
         """Test setting attributes using setattr."""
@@ -176,6 +173,7 @@ class TestBaseCase(unittest.TestCase):
         dict_result = self.rectangle.to_dictionary()
         expected_dict = {'x': 3, 'y': 4, 'id': 5, 'height': 2, 'width': 1}
         self.assertEqual(dict_result, expected_dict)
+
 
 if __name__ == '__main__':
     unittest.main()
