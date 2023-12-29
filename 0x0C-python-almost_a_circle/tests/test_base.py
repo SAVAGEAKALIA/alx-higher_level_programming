@@ -62,7 +62,7 @@ class TestBaseCase(unittest.TestCase):
     def test_to_json_string_with_none(self):
         """Tests to_json_string with None."""
         json_str = Base.to_json_string(None)
-        self.assertEqual(json_str, [])
+        self.assertEqual(json_str, '[]')
 
     def test_from_json_string_with_valid_string(self):
         """Tests from_json_string with a valid JSON string."""

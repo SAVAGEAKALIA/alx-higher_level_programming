@@ -43,7 +43,7 @@ class Base:
         @return: JSON String format
         """
         if list_dictionaries is None or list_dictionaries == "":
-            return []
+            return "[]"
         return dumps(list_dictionaries)
 
     @staticmethod
