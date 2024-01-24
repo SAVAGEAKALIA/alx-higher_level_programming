@@ -1,5 +1,5 @@
 -- STILL Temperature sort
-SELECT city, AVG(temp) AS avg_temp
+SELECT city, AVG(value) AS avg_temp
 FROM temperatures
 WHERE month IN (7, 8)  -- Filter for July and August
 GROUP BY city
