@@ -4,7 +4,7 @@ const process = require('process');
 
 const args = process.argv.slice(2).join(' ');
 
-function add(a, b) {
+function add (a, b) {
   return a + b;
 }
 
