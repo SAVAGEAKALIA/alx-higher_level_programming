@@ -4,7 +4,7 @@ const process = require('process');
 
 const args = parseInt(process.argv.slice(2)[0]); // Get and convert first argument
 
-function factorial(number) {
+function factorial (number) {
   if (isNaN(number)) {
     return 1; // Factorial of NaN is 1
   } else if (number === 0) {
