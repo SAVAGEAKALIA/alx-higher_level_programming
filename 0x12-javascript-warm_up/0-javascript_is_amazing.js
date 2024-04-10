@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 
-const java = 'JavaScript is amazing';
-console.log(java);
+const myVar = 'JavaScript is amazing';
+console.log(myVar);
