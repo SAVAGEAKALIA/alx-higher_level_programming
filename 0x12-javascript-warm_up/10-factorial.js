@@ -2,25 +2,17 @@
 
 const process = require('process');
 
-const args = process.argv.slice(2).join(' ');
+const args = parseInt(process.argv.slice(2)[0]); // Get and convert first argument
 
-function factorial (a) {
-  let result = 1;
-  let n = a;
-  for (let i = 1; i < a; i++) {
-    result *= n;
-    n = n - i;
-  }
-  return result;
-}
-
-if (args.length === 0 || isNaN(parseInt(args))) {
-  console.log(1);
-} else {
-  const argssplit = args.split(' ');
-  for (let i = 0; i < argssplit[i]; i++) {
-    const a = parseInt(argssplit[i]);
-    const result = factorial(a);
-    console.log(result);
+function factorial(number) {
+  if (isNaN(number)) {
+    return 1; // Factorial of NaN is 1
+  } else if (number === 0) {
+    return 1;
+  } else {
+    return number * factorial(number - 1);
   }
 }
+
+const result = factorial(args);
+console.log(result);

@@ -2,20 +2,11 @@
 
 const process = require('process');
 
-const args = process.argv.slice(2).join(' ');
+const args = process.argv.slice(2)[0]; // Get the first argument
 
-if (args.length === 0) {
-  console.log('Not a Number');
+if (isNaN(args)) {
+  console.log('Not a number');
 } else {
-  let i = 0;
-  const argssplit = args.split(' ');
-  while (argssplit[i]) {
-    const a = parseInt(argssplit[i]);
-    if (isNaN(a)) {
-      console.log('Not a Number');
-    } else {
-      console.log('My Number: ' + a);
-    }
-    i++;
-  }
+  const number = parseInt(args);
+  console.log(`My number: ${number}`);
 }
