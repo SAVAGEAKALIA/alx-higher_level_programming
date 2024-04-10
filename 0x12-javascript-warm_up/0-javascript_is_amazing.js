@@ -1,4 +1,4 @@
-#!/bin/usr/env node
+#!/usr/bin/env node
 
 const java = 'JavaScript is amazing';
 console.log(java);

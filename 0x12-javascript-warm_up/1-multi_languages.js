@@ -1,4 +1,4 @@
-#!/bin/usr/env node
+#!/usr/bin/env node
 
 const multi = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
 
