@@ -9,7 +9,7 @@ if (args.length === 0 || !args) { // Check for empty input
 } else {
   const argssplit = args.split(' ');
   let result = -Infinity; // Initialize result to negative infinity
-  let secondLargest = -Infinity; // Initialize secondLargest to negative infinity
+  let secondLargest = -Infinity; // Initialize secondLarges to negative infinity
 
   for (let i = 0; i < argssplit.length; i++) {
     const currentNumber = parseInt(argssplit[i]); // Parse current element to number
