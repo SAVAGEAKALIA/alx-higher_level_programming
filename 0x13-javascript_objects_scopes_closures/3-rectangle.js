@@ -12,14 +12,8 @@ class Rectangle {
 
   // Print method
   print() {
-    const x = 'x';
-    let g = '';
-    for (let i = 0; i < parseInt(this.height); i++) {
-      for (let j = 0; j < parseInt(this.width); j++) {
-        g += x;
-      }
-      console.log(g);
-      g = '';
+    for (let i = 0; i < this.height; i++) {
+      console.log('X'.repeat(this.width));
     }
   }
 }

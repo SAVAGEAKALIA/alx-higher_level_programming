@@ -2,12 +2,12 @@
 const Sq = require('./5-square');
 
 class Square extends Sq {
-  size;
+    size;
 
-  constructor(size) {
-      super(size);
-      this.size = size;
-  }
+    constructor(size) {
+        super(size);
+        this.size = size;
+    }
 
     charPrint(c = 'X') {
         let output = '';
