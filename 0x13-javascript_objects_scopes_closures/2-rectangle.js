@@ -1,17 +1,12 @@
 #!/usr/bin/node
 
 class Rectangle {
-  width;
-  height;
-
   constructor(w, h) {
-    if ((!Number.isInteger(w) || w <= 0) || (!Number.isInteger(h) || h <= 0)) {
-      /* console.log("Rectangle {}") */
-      this.width = undefined;
-      this.height = undefined;
-    } else {
+    if (w > 0 && h > 0) {
       this.width = w;
       this.height = h;
+    } else {
+      Object.create(null);
     }
   }
 }
