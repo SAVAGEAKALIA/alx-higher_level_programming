@@ -1,1 +1,1 @@
-Python Repository for sprint 2 Coding sike
+Python Repository for sprint 2 Coding
