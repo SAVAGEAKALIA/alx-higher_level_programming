@@ -3,7 +3,7 @@
 const process = require('process');
 
 const args = process.argv.slice(2).join(' ');
-let ar
+let ar;
 
 if (!args) {
   console.log('No argument');
