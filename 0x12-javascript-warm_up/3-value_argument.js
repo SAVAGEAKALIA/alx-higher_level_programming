@@ -5,7 +5,7 @@ const process = require('process');
 const args = process.argv.slice(2).join(' ');
 
 if (!args) {
-    console.log('No argument');
+  console.log('No argument');
 } else {
-    console.log(args);
+  console.log(args);
 }
