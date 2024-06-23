@@ -19,8 +19,8 @@ if (!isNaN(a) && !isNaN(b)) {
     console.log(`The sum of ${a} and ${b} is ${result}`);
 } else {
     if (!a) {
-        console.log(`${a}`);
-    } else {
         console.log(`${b}`);
+    } else {
+        console.log(`${a}`);
     }
 }
