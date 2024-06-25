@@ -16,10 +16,12 @@ Arguments:
 import MySQLdb
 import sys
 
+
 def main():
     """
     Main function that executes the script's logic.
-    Connects to the MySQL database, executes the query to find matching states,
+    Connects to the MySQL database,
+    executes the query to find matching states,
     and prints each row in the result set.
     """
     # Retrieve command-line arguments
@@ -42,6 +44,7 @@ def main():
     # Close the cursor and database connection
     cur.close()
     db.close()
+
 
 if __name__ == "__main__":
     main()
