@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
 """
 Script that takes in an argument and
 displays all values in the states table
@@ -12,7 +12,8 @@ import sys
 def main():
     """
     Main function to execute the script.
-    Connects to the MySQL database and queries the 'states' table
+    Connects to the MySQL database and
+    queries the 'states' table
     for entries where the name matches a specific pattern.
     """
     # Retrieve command-line arguments
@@ -28,7 +29,8 @@ def main():
     cur = db.cursor()
 
     cur.execute("SELECT * FROM states "
-                "WHERE  LOWER(name) LIKE LOWER('N%') ORDER BY states.id;")
+                "WHERE name LIKE BINARY 'n%' OR name LIKE BINARY 'N%' "
+                "ORDER BY states.id;")
 
     # Fetch all rows from the executed query and print each row
     for row in cur.fetchall():
@@ -40,5 +42,4 @@ def main():
 
 
 if __name__ == "__main__":
-    # Ensure the main function is called only when the script is executed directly
     main()
