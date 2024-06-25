@@ -23,9 +23,8 @@ def main():
     cur = db.cursor()
 
     # Execute the SQL query using format
-    query = "SELECT * FROM states" \
-            " WHERE name = '{}' ORDER BY id ASC;".format(state_name)
-    cur.execute(query)
+    cur.execute("SELECT * FROM states"
+                "WHERE BINARY name = '{}' ORDER BY id ASC;".format(state_name))
 
     # Fetch and print all rows from the executed query
     for row in cur.fetchall():
