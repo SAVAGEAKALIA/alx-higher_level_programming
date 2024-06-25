@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 """
 This script connects to a MySQL database
 and retrieves all rows from the 'cities' table,
