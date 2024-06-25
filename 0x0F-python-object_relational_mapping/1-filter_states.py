@@ -27,8 +27,8 @@ def main():
     # Create a cursor object to interact with the database
     cur = db.cursor()
 
-    # Execute the SQL query to select all states where the name starts with 'N'
-    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id;")
+    cur.execute("SELECT * FROM states "
+                "WHERE LOWER(name) LIKE 'N%' ORDER BY states.id;")
 
     # Fetch all rows from the executed query and print each row
     for row in cur.fetchall():
