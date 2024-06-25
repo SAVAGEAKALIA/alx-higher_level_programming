@@ -40,8 +40,8 @@ def main():
     cur = db.cursor()
 
     cur.execute("SELECT cities.name FROM cities, states "
-                "WHERE (cities.state_id = states.id) AND states.name = %s "
-                "ORDER BY cities.id ASC;", (arg,))
+                "JOIN states ON cities.state_id = states.id "
+                "WHERE states.name = %s ORDER BY cities.id ASC;", (args,))
 
     # Fetch all rows from the executed query
     rows = cur.fetchall()

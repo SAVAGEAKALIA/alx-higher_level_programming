@@ -38,8 +38,7 @@ def main():
     cur = db.cursor()
 
     # Execute the SQL query to select city IDs, city names, and state names
-    cur.execute("SELECT cities.id, cities.name, states.name "
-                "FROM cities, states "
+    cur.execute("SELECT cities.name, states.name FROM cities, states "
                 "WHERE cities.state_id = states.id ORDER BY cities.id ASC;")
 
     # Fetch all rows from the executed query and print each row
