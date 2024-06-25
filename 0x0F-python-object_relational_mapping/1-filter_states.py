@@ -28,7 +28,7 @@ def main():
     cur = db.cursor()
 
     cur.execute("SELECT * FROM states "
-                "WHERE  name LIKE lower('N%') ORDER BY states.id;")
+                "WHERE  LOWER(name) LIKE 'n%' ORDER BY states.id;")
 
     # Fetch all rows from the executed query and print each row
     for row in cur.fetchall():
