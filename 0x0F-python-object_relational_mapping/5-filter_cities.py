@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
 """
 This script connects to a MySQL database
 and retrieves the names of cities
@@ -30,7 +30,8 @@ def main():
     """
     # Retrieve command-line arguments
     args = sys.argv[1:]
-    username, password, database, arg = args
+    username, password, database = args[:3]
+    state_names = args[3:]
 
     # Establish a connection to the MySQL database
     db = MySQLdb.connect(host="localhost", port=3306,
@@ -39,9 +40,11 @@ def main():
     # Create a cursor object to interact with the database
     cur = db.cursor()
 
-    cur.execute("SELECT cities.name FROM cities "
-                "INNER JOIN states ON cities.state_id = states.id "
-                "WHERE states.name = %s ORDER BY cities.id ASC;", (args,))
+    query = "SELECT cities.name FROM cities " \
+            "INNER JOIN states ON cities.state_id = states.id " \
+            "WHERE states.name IN %s ORDER BY cities.id ASC;"
+
+    cur.execute(query, (tuple(state_names),))
 
     # Fetch all rows from the executed query
     rows = cur.fetchall()
