@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
 """
 Script that takes in an argument and displays all values in the states table
 of hbtn_0e_0_usa where name matches the argument.
@@ -23,8 +23,9 @@ def main():
     cur = db.cursor()
 
     # Execute the SQL query using format
-    cur.execute("SELECT * FROM states"
-                "WHERE BINARY name = '{}' ORDER BY id ASC;".format(state_name))
+    query = ("SELECT * FROM states "
+             "WHERE BINARY name = '{}' ORDER BY id ASC;".format(state_name))
+    cur.execute(query)
 
     # Fetch and print all rows from the executed query
     for row in cur.fetchall():
