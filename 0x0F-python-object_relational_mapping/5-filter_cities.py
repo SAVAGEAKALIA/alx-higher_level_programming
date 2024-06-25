@@ -16,11 +16,18 @@ db = MySQLdb.connect(host="localhost", port=3306,
 
 cur = db.cursor()
 
-cur.execute("SELECT * FROM states "
-            "WHERE name = %s ORDER BY states.id;", (arg,))
+cur.execute("SELECT cities.name FROM cities, states "
+            "WHERE (cities.state_id = states.id) AND states.name = %s ORDER BY cities.id ASC;", (arg,))
 
-for row in cur.fetchall():
-    print(row)
+rows = cur.fetchall()
+
+i = 0;
+
+for i, row in enumerate(rows):
+    if i < len(rows) - 1:
+        print(row[0], end=", ")
+    else:
+        print(row[0])
 
 cur.close()
 db.close()

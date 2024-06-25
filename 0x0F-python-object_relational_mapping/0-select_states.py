@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-# import mysql.connector
-
+""" SQL ORM FOR PYTHON DATABASES """
 import MySQLdb
 import sys
 

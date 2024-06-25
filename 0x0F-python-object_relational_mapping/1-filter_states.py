@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" SQL ORM FOR PYTHON DATABASES """
 import MySQLdb
 import sys
 
