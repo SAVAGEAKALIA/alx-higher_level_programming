@@ -9,21 +9,36 @@ import MySQLdb
 import sys
 
 
-username = sys.argv[1]
-password = sys.argv[2]
-database = sys.argv[3]
+def main():
+    """
+    Main function to execute the script.
+    Connects to the MySQL database and queries the 'states' table
+    for entries where the name matches a specific pattern.
+    """
+    # Retrieve command-line arguments
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
 
-db = MySQLdb.connect(host='localhost', port=3306,
-                     user=username, passwd=password, db=database)
-cur = db.cursor()
-cur.execute("SELECT * FROM states "
-            "WHERE name LIKE 'N%' ORDER BY states.id;")
+    # Establish a connection to the MySQL database
+    db = MySQLdb.connect(host='localhost', port=3306,
+                         user=username, passwd=password, db=database)
 
-for row in cur.fetchall():
-    print(row)
+    # Create a cursor object to interact with the database
+    cur = db.cursor()
 
-cur.close()
-db.close()
+    # Execute the SQL query to select all states where the name starts with 'N'
+    cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id;")
+
+    # Fetch all rows from the executed query and print each row
+    for row in cur.fetchall():
+        print(row)
+
+    # Close the cursor and database connection
+    cur.close()
+    db.close()
+
 
 if __name__ == "__main__":
-    pass
+    # Ensure the main function is called only when the script is executed directly
+    main()
