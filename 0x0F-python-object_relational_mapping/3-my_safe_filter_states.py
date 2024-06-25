@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-SQL ORM FOR PYTHON DATABASES
+SQL ORM FOR PYTHON DATABASE
 MySqldb
 """
 
