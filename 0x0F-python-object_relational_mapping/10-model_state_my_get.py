@@ -17,7 +17,8 @@ def main(engine):
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    state_name = session.query(State).filter(State.name == state_check).order_by(State.id.asc()).first()
+    state_name = session.query(State)\
+            .filter(State.name == state_check).order_by(State.id.asc()).first()
 
     if state_name:
         print(f"{state_name.id}")
