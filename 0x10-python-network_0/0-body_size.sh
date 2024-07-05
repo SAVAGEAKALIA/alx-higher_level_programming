@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 if [ $# -ne 1 ]; then 
 	echo "Arguments for server not complete"
 	exit 1
