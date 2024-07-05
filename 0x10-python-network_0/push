@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Check if URL argument is provided
+if [ $# -ne 1 ]; then
+    echo "Please put your commit mesage"
+    exit 1
+fi
+
+git add .
+git commit -m"$1"
+git push -u origin
