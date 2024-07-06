@@ -29,12 +29,7 @@ def find_peak(list_of_integers):
         return num_list[middle_index]
 
     elif num_list[right] > num_list[middle_index]:
-        for element in num_list[right:]:
-            if element > num_list[right]:
-                num_list[right] = element
-            else:
-                continue
-        return num_list[right]
+        return find_peak(num_list[right:])
 
     else:
         for element in num_list[:left]:
