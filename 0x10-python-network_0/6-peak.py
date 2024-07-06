@@ -38,4 +38,3 @@ def find_peak(list_of_integers):
             else:
                 continue
         return num_list[left]
-
