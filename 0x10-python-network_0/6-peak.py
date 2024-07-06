@@ -35,6 +35,7 @@ def find_peak(list_of_integers):
             else:
                 continue
         return num_list[right]
+
     else:
         for element in num_list[:left]:
             if element > num_list[left]:
@@ -42,3 +43,4 @@ def find_peak(list_of_integers):
             else:
                 continue
         return num_list[left]
+
