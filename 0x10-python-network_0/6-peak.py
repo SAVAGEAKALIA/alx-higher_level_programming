@@ -3,7 +3,10 @@
 
 
 def find_peak(list_of_integers):
-    """Function  definition"""
+    """
+    Function  definition
+    Find the peak through the lowest tim complexity method
+    """
 
     num_list = list_of_integers
 
@@ -20,7 +23,9 @@ def find_peak(list_of_integers):
     right = middle_index + 1
     left = middle_index - 1
 
-    if num_list[middle_index] > num_list[middle_index - 1] and num_list[middle_index] > num_list[middle_index + 1]:
+    if num_list[middle_index] > num_list[middle_index - 1] \
+            and \
+            num_list[middle_index] > num_list[middle_index + 1]:
         return num_list[middle_index]
 
     elif num_list[right] > num_list[middle_index]:
