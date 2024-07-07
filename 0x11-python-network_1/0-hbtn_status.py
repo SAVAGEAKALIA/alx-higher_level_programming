@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 """ Python Network 01 """
 
 from urllib.request import urlopen
