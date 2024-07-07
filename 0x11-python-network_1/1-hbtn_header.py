@@ -15,7 +15,7 @@ def main():
 
     req = Request(arg1)
 
-    with urlopen(arg1) as response:
+    with urlopen(req) as response:
         headers = response.info()
         x_request_id = headers.get('X-Request-Id')
 
