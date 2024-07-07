@@ -6,7 +6,6 @@ header from a URL provided as a command-line argument.
 """
 
 import urllib.request
-import urllib.error
 from sys import argv
 
 
@@ -15,21 +14,13 @@ def main():
     Main function to execute the script.
     """
     url = argv[1]
-    try:
-        opener = urllib.request.build_opener(urllib.request.HTTPRedirectHandler())
-        urllib.request.install_opener(opener)
 
-        with urllib.request.urlopen(url) as response:
-            x_request_id = response.getheader('X-Request-Id')
-            if x_request_id:
-                print(x_request_id)
-            else:
-                print("X-Request-Id not found in the header")
+    opener = urllib.request.build_opener(urllib.request.HTTPRedirectHandler())
+    urllib.request.install_opener(opener)
 
-    except urllib.error.HTTPError as e:
-        print(f"HTTP Error occurred: {e}")
-    except urllib.error.URLError as e:
-        print(f"Error accessing the URL: {e}")
+    with urllib.request.urlopen(url) as response:
+        x_request_id = response.getheader('X-Request-Id')
+        print(x_request_id)
 
 
 if __name__ == '__main__':
