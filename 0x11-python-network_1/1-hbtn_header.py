@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Python Network 01 """
 
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
 from sys import argv
 
 arg1 = argv[1]
@@ -13,12 +13,13 @@ def main():
     fetches https://alx-intranet.hbtn.io/status
     """
 
-    with urlopen(arg1) as e:
-        headers = e.getheaders()
+    req = Request(arg1)
 
-    for key, value in headers:
-        if key == 'X-Request-Id':
-            print(value)
+    with urlopen(arg1) as response:
+        headers = response.info()
+        x_request_id = headers.get('X-Request-Id')
+
+    print(x_request_id)
 
 
 if __name__ == '__main__':
