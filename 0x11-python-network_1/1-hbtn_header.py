@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-""" Python Network 01 """
+"""
+Python Network 01
+This script fetches the X-Request-Id
+header from a URL provided as a command-line argument.
+"""
 
 from urllib.request import urlopen, Request
 from sys import argv
@@ -9,8 +13,7 @@ arg1 = argv[1]
 
 def main():
     """
-     Write a Python script that
-     fetches alx-intranet.hbtn.io/status
+    Main function to execute the script.
     """
 
     req = Request(arg1)
