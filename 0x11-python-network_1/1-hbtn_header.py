@@ -5,7 +5,8 @@ This script fetches the X-Request-Id
 header from a URL provided as a command-line argument.
 """
 
-from urllib.request import urlopen, Request
+import urllib.request
+import urllib.error
 from sys import argv
 
 
@@ -13,15 +14,22 @@ def main():
     """
     Main function to execute the script.
     """
-    arg1 = argv[1]
-    req = Request(arg1)
+    url = argv[1]
+    try:
+        opener = urllib.request.build_opener(urllib.request.HTTPRedirectHandler())
+        urllib.request.install_opener(opener)
 
-    with urlopen(req) as response:
-        # headers = response.read()
-        x_request_id = response.getheader('X-Request-Id')
-        # x_request_id = headers.get('X-Request-Id')
+        with urllib.request.urlopen(url) as response:
+            x_request_id = response.getheader('X-Request-Id')
+            if x_request_id:
+                print(x_request_id)
+            else:
+                print("X-Request-Id not found in the header")
 
-    print(x_request_id)
+    except urllib.error.HTTPError as e:
+        print(f"HTTP Error occurred: {e}")
+    except urllib.error.URLError as e:
+        print(f"Error accessing the URL: {e}")
 
 
 if __name__ == '__main__':
