@@ -15,10 +15,11 @@ def main():
     with urlopen(url) as e:
         req = e.read()
 
-    print(f"Body response:")
+
+    print("Body response:")
     print(f"\t- type: {type(req)}")
     print(f"\t- content: {req}")
-    req = req.decode('utf8')
+    req = req.decode('utf-8')
     print(f"\t- utf8 content: {req}")
 
 
