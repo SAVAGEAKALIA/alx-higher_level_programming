@@ -17,8 +17,9 @@ def main():
     req = Request(arg1)
 
     with urlopen(req) as response:
-        headers = response.info()
-        x_request_id = headers.get('X-Request-Id')
+        # headers = response.read()
+        x_request_id = response.getheader('X-Request-Id')
+        # x_request_id = headers.get('X-Request-Id')
 
     print(x_request_id)
 
