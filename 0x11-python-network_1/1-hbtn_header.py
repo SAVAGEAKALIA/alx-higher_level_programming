@@ -9,8 +9,8 @@ arg1 = argv[1]
 
 def main():
     """
-    Write a Python script that
-    fetches https://alx-intranet.hbtn.io/status
+     Write a Python script that
+     fetches alx-intranet.hbtn.io/status
     """
 
     req = Request(arg1)
