@@ -7,13 +7,12 @@ from urllib.request import urlopen
 def main():
     """
     Write a Python script that
-    fetches https://alx-intranet.hbtn.io/status
+    fetches alx-intranet.hbtn.io/status
     """
     url = "https://alx-intranet.hbtn.io/status"
 
     with urlopen(url) as e:
         req = e.read()
-
 
     print("Body response:")
     print(f"\t- type: {type(req)}")
