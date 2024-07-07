@@ -15,7 +15,7 @@ def main():
     with urlopen(url) as e:
         req = e.read()
 
-    print(f"Body response: ")
+    print(f"Body response:")
     print(f"\t- type: {type(req)}")
     print(f"\t- content: {req}")
     req = unquote(req).encode('utf8')
