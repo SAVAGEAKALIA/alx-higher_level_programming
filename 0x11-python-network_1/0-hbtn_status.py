@@ -18,7 +18,7 @@ def main():
     print(f"Body response:")
     print(f"\t- type: {type(req)}")
     print(f"\t- content: {req}")
-    req = unquote(req)
+    req = req.decode('utf8')
     print(f"\t- utf8 content: {req}")
 
 
