@@ -1,26 +1,30 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 """ Python Network 01 """
 
 from urllib.request import Request, urlopen
+from urllib.parse import urlencode
 from sys import argv
 
 
 def main():
     """
     Write a Python script that
-    fetches https://alx-intranet.hbtn.io/status
+    Sends a Post Request
+    Use print statement to output answer
     """
     url = argv[1]
     email = argv[2]
 
-    req = email.encode('ascii')
+    dict_email = {'email': email}
+    req = urlencode(dict_email)
+    req = req.encode('ascii')
 
-    data = Request(url, req)
+    data_req = Request(url, data=req, method='POST')
 
-    with urlopen(data) as response:
+    with urlopen(data_req) as response:
         html = response.read()
 
-    html = html.unquote(html).encode('utf8')
+    html = html.decode('utf8')
     print(f'Your email is: {html}')
 
 
