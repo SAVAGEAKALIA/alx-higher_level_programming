@@ -20,15 +20,20 @@ def main():
     dict_letter = {'q': q}
 
     response = requests.post(url, data=dict_letter)
-    response = response.json()
+    # response = response.json()
 
-    try:
-        if response:
-            print(f'{[response.get("id")]} {response.get("name")}')
-        else:
-            print("No result")
-    except ValueError:
-        print('Not a valid JSON')
+    content_type = response.headers.get('Content-Type', '')
+    if 'application/json' in content_type:
+        try:
+            json_response = response.json()
+            if json_response:
+                print(f"[{json_response.get('id')}] {json_response.get('name')}")
+            else:
+                print("No result")
+        except ValueError:
+            print("Not a valid JSON")
+    else:
+        print("Not a valid JSON")
 
 
 if __name__ == '__main__':
