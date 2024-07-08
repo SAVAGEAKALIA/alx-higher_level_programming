@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """ Python Network 01 """
 
 import requests
@@ -17,8 +17,7 @@ def main():
     git_api = "application/vnd.github+json"
     headers = {'accept': git_api}
     basic = HTTPBasicAuth(username, password)
-    response = requests.get('https://api.github.com/user',
-                            headers=headers, auth=basic)
+    response = requests.get('https://api.github.com/user', headers=headers, auth=basic)
     # if response.status_code == 200:
     response = response.json()
     print(response.get('id'))
