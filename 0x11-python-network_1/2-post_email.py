@@ -25,7 +25,7 @@ def main():
         html = response.read()
 
     html = html.decode('utf-8')
-    print(f'Your email is: {html}')
+    print(f'{html}')
 
 
 if __name__ == '__main__':
