@@ -2,7 +2,6 @@
 """ Python Network 01 """
 
 from urllib.request import Request, urlopen
-from urllib.parse import unquote
 from sys import argv
 
 
