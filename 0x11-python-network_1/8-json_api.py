@@ -27,7 +27,8 @@ def main():
         try:
             json_response = response.json()
             if json_response:
-                print(f"[{json_response.get('id')}] {json_response.get('name')}")
+                print(f"[{json_response.get('id')}] "
+                      f"{json_response.get('name')}")
             else:
                 print("No result")
         except ValueError:
