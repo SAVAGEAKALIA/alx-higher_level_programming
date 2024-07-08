@@ -7,17 +7,16 @@ from sys import argv
 
 def main():
     """
-    Send a POST request to the URL with email parameter
-    and print the response body
+    Send a request to the URL and
+    print the response body or error code
     """
-
     url = argv[1]
-    email = argv[2]
-    dict_email = {'email': email}
-    req = requests.post(url, data=dict_email)
-    req = req.text
+    response = requests.get(url)
 
-    print(req)
+    if response.status_code == 200:
+        print(response.text)
+    else:
+        print(f"Error code: {response.status_code}")
 
 
 if __name__ == '__main__':
