@@ -1,8 +1,7 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 """ Python Network 01 """
 
 import requests
-from requests.auth import HTTPBasicAuth
 from sys import argv
 
 
@@ -12,15 +11,20 @@ def main():
     print the X-Request-Id header value
     """
 
-    username = argv[1]
-    password = argv[2]
+    rep_name = argv[1]
+    owner_name = argv[2]
     git_api = "application/vnd.github+json"
     headers = {'accept': git_api}
-    basic = HTTPBasicAuth(username, password)
-    response = requests.get('https://api.github.com/user', headers=headers, auth=basic)
-    # if response.status_code == 200:
-    response = response.json()
-    print(response.get('id'))
+
+    response = requests.get(f"https://api.github.com/repos/{owner_name}/{rep_name}/commits",
+                            headers=headers)
+
+    commits = response.json()
+    # print(response)
+    for commit in commits:
+        # author = commit['commit']['author']['name']
+        print(f'{commit["sha"]}: {commit["commit"]["author"]["name"]}')
+    # print(f"{response('sha')}: {response('author')}")
     # else:
     # print(response.status_code)
 
