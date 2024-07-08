@@ -24,7 +24,7 @@ def main():
 
     try:
         if response:
-            print(f'{[response.get("id")]}  {response.get("name")}')
+            print(f'{[response.get("id")]} {response.get("name")}')
         else:
             print("No result")
     except ValueError:
