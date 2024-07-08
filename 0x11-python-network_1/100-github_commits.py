@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
 """ Python Network 01 """
 
 import requests
@@ -16,17 +16,15 @@ def main():
     git_api = "application/vnd.github+json"
     headers = {'accept': git_api}
 
-    response = requests.get(f"https://api.github.com/repos/{owner_name}/{rep_name}/commits",
+    response = requests.get(f"https://api.github.com/repos/"
+                            f"{owner_name}/{rep_name}/commits",
                             headers=headers)
 
     commits = response.json()
-    # print(response)
-    for commit in commits:
+
+    for commit in commits[:10]:
         # author = commit['commit']['author']['name']
         print(f'{commit["sha"]}: {commit["commit"]["author"]["name"]}')
-    # print(f"{response('sha')}: {response('author')}")
-    # else:
-    # print(response.status_code)
 
 
 if __name__ == '__main__':
