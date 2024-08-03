@@ -2,7 +2,6 @@
 const process = require('process');
 const request = require('request');
 const movieapi = process.argv[2];
-console.log(movieapi);
 
 if (!movieapi) {
   console.error('Usage: node 0-fetch-character.js <character_id>');

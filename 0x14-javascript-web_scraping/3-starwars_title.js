@@ -8,7 +8,6 @@ if (movieId === undefined) {
 }
 
 const api = `https://swapi-api.alx-tools.com/api/films/${movieId}`;
-console.log(api);
 request.get(api, (err, response, body) => {
   if (err) {
     console.log(err);
@@ -19,5 +18,5 @@ request.get(api, (err, response, body) => {
     process.exit(1);
   }
   const movie = JSON.parse(body);
-  console.log(`Title: ${movie.title}`);
+  console.log(`${movie.title}`);
 });
