@@ -1,31 +1,37 @@
 #!/usr/bin/node
 const request = require('request');
-const process = require('process');
-let api = process.argv.slice(2)[0]
 
-if (api === undefined) {
-    console.log('Usage: node script.js <API URL>');
-    process.exit(1);
-}
+const apiUrl = process.argv[2];
 
-request(api, (error, response, body) => {
+request(apiUrl, (error, response, body) => {
     if (error) {
         console.error('Error:', error);
-        process.exit(1);
+        return;
     }
-    if (response.statusCode !== 200) {
-        console.error(`Request Failed with status code: ${response.statusCode}`);
-        process.exit(1);
-    }
-    let completedtodo = {};
-    const todo = JSON.parse(body)
-    for (const user of todo) {
-        if (user.completed === true) {
-            if (!completedtodo[user.userId]) {
-                completedtodo[user.userId] = 0;
+
+    try {
+        const todos = JSON.parse(body);
+        const completedTasks = {};
+
+        todos.forEach(todo => {
+            if (todo.completed) {
+                if (completedTasks[todo.userId]) {
+                    completedTasks[todo.userId]++;
+                } else {
+                    completedTasks[todo.userId] = 1;
+                }
             }
-            completedtodo[user.id] = completedtodo[user.userId]++;
+        });
+
+        // Remove users with no completed tasks
+        for (const userId in completedTasks) {
+            if (completedTasks[userId] === 0) {
+                delete completedTasks[userId];
+            }
         }
+
+        console.log(completedTasks);
+    } catch (parseError) {
+        console.error('Error parsing JSON:', parseError);
     }
-    console.log(completedtodo);
-})
+});
