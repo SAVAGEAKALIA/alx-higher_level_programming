@@ -24,6 +24,6 @@ request(site, (error, response, body) => {
             console.error(err);
             process.exit(1);
         }
-        console.log(`Downloaded and saved ${filepath}`);
+        console.log(${filepath});
     });
 })
