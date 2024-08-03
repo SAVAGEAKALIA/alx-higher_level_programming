@@ -24,6 +24,7 @@ request(site, (error, response, body) => {
             console.error(err);
             process.exit(1);
         }
+
         console.log(${filepath});
     });
 })
