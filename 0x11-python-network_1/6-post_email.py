@@ -13,6 +13,8 @@ def main():
 
     url = argv[1]
     email = argv[2]
+    # url = "https://alx-intranet.hbtn.io/status"
+    # email = 'akaliasviour@gmail.com'
     dict_email = {'email': email}
     req = requests.post(url, data=dict_email)
     req = req.text
